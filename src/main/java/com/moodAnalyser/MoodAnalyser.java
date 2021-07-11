@@ -3,17 +3,27 @@ package com.moodAnalyser;
 
 public class MoodAnalyser {
 
-    /**
-     * Ability to check the given string in the given message
-     * @param message
-     * @return HAPPY or SAD
-     */
-    public String analyseMood(String message) {
-        if (message.contains("Sad")) {
-            return "SAD";
-        } else {
-            return "HAPPY";
-        }
+    private String message;
+
+
+    //default constructor
+    public MoodAnalyser() {
+
     }
 
+    //constructor
+    public MoodAnalyser(String message) {
+        this.message = message;
+    }
+
+    public String analyseMood() {
+        try {
+            if (message.toLowerCase().contains("sad"))
+                return "SAD";
+            return "HAPPY";
+        } catch (NullPointerException e) {
+            return "HAPPY";
+        }
+
+    }
 }
